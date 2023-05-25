@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>počty1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+                console.log("DOM fully loaded and parsed");
+
+        var x=15.6;
+        var y=3.2;
+        var sum=x+y;
+        var sub=x-y;
+        document.getElementById("res").innerHTML="Soucet: "+sum;
+        document.getElementById("res").innerHTML+="<br>";
+        document.getElementById("res").innerHTML+="rozdil: "+sub;
+    });        
+    </script>
+</head>
+<body>
+    <pre>
+Sestavte program Kalkulačka
+Zadej první cislo: 15.6
+Zadej druhé cislo: 3.2
+Soucet 15.6 + 3.2 = 18.8
+Rozdil 15.6 - 3.2 = 12.4
+Soucin 15.6 * 3.2 = 49.92
+Podil 15.6 / 3.2 = 4.875
+    </pre>
+  <p id="res"></p><br>
+    
+
+</body>
+</html>
