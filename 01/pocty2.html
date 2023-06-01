@@ -8,8 +8,9 @@
         window.addEventListener("DOMContentLoaded", (event) => {
            
         let btn = document.getElementById('calc');
-        console.log(btn);
+        
         btn.addEventListener('click', (e) => {
+            console.log(e);
             x = parseFloat(document.getElementById('x').value);
             y = parseFloat(document.getElementById('y').value);  
             document.getElementById('res').innerHTML=x+y;

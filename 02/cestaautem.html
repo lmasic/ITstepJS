@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>počty1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .success {background:green}
+        .error {background:red}
+    </style>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+           
+        let btn = document.getElementById('calc');
+        
+        let delka = document.getElementById('delka');
+        
+        delka.addEventListener('keydown', (e) => {    
+            var elm= e.srcElement;//element s událostí
+            delka = Number(elm.value);
+
+            elm.classList.remove("success");
+            elm.classList.remove("error");
+
+            if (delka<1 || isNaN(delka) ) {
+                elm.classList.add("error");
+            }
+            else {
+
+                elm.classList.add("success");
+            }
+
+
+        });
+
+
+        btn.addEventListener('click', (e) => {
+            console.log(e);
+            delka = parseFloat(document.getElementById('delka').value);
+            spotreba = parseFloat(document.getElementById('spotreba').value);  
+            phm = Number(document.getElementById('phm').value);  
+            pocet = parseFloat(document.getElementById('pocet').value);  
+            cena_cesty=delka/100*spotreba*phm
+            
+            if (isNaN(cena_cesty) || isNaN(pocet))
+            { 
+                document.getElementById('res').innerHTML="Zadal jsi nesmysly.";
+           
+            }
+        else
+        { 
+            document.getElementById('res').innerHTML=cena_cesty+"<br>";
+            document.getElementById('res').innerHTML+=cena_cesty/pocet;
+        }
+
+        });
+
+        
+    }); //DOMContentLoaded       
+    </script>
+</head>
+<body>
+   <form>
+<label for="delka">Délka: </label>
+<input type="text" name="delka" id="delka" value="200"><BR>
+
+<label for="spotreba">druhé číslo: Spotreba v l/100km</label>
+<input type="text" name="spotreba" id="spotreba" value="8"><BR>
+
+<label for="Cena PHM">Cena PHM: </label>
+<input type="text" name="phm" id="phm"  value="35"><BR>
+
+    <label for="pocet">Počet lidí: </label>
+    <input type="text" name="pocet" id="pocet" value="1"><BR>
+
+<input type="button"  id="calc" value="Spočti"><BR>
+     
+
+   </form> 
+
+  <p id="res"></p><br>
+    
+
+</body>
+</html>
