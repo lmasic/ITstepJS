@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>počty1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+           
+        let btn = document.getElementById('calc');
+        
+        btn.addEventListener('click', (e) => {
+           
+            x = parseInt(document.getElementById('x').value);
+            y = parseInt(document.getElementById('y').value);  
+            z = Number(document.getElementById('z').value);  
+          
+            ratio=x/y;
+          
+            document.getElementById('res')
+            .innerHTML="poměr: "+ratio+"<br>"+
+            "výška: "+z*ratio;
+            
+            document.getElementById('pic').width=x;
+            document.getElementById('pic').height=z*ratio;
+
+        });
+
+
+
+// https://stackoverflow.com/questions/4917664/detect-viewport-orientation-if-orientation-is-portrait-display-alert-message-ad
+        
+    window.addEventListener('resize', (e) => {
+           
+           x=window.screen.availWidth;
+           console.log(x);
+           ratio=x/document.getElementById('pic').width;
+           z=document.getElementById('pic').height;
+
+           document.getElementById('res')
+           .innerHTML="poměr: "+ratio+"<br>"+
+           "výška: "+z*ratio;
+           
+           document.getElementById('pic').width=x;
+           document.getElementById('pic').height=z*ratio;
+
+       });
+
+        
+    }); //DOMContentLoaded       
+    </script>
+</head>
+<body>
+   <form>
+<label for="x">První číslo: </label>
+<input type="text" name="x" id="x" value="360"><BR>
+<label for="y">druhé číslo: </label>
+<input type="text" name="y" id="y" value="1200"><BR>
+<label for="z">druhé číslo: </label>
+<input type="text" name="z" id="z" value="630"><BR>
+
+<input type="button"  id="calc" value="Spočti"><BR>
+     
+
+   </form> 
+
+  <p id="res"></p><br>
+    
+<img id="pic" src="https://media.swncdn.com/godtube/resource/popular-hymns/image/amazing-grace.jpg">
+</body>
+</html>

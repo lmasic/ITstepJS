@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>počty1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+           
+        let btn = document.getElementById('calc');
+        
+        btn.addEventListener('click', (e) => {
+            console.log(e);
+            x = parseInt(document.getElementById('x').value);
+            y = parseInt(document.getElementById('y').value);  
+            z = Number(document.getElementById('z').value);  
+           // document.getElementById('res').innerHTML=8508260167%11;
+
+           v=0;
+           if (x > 0) {
+            v =  Math.floor(x / 100);// 5
+            zb = x % 100;// 693 - 600 = 67
+
+            v = v + Math.floor(zb / 10);//v+=zb 5+ 67/10
+            zb = zb % 10;//3
+
+            v = v + zb;
+            
+           document.getElementById('res').innerHTML=v;
+        }
+        else {
+            document.getElementById('res').innerHTML="Zadaná hodnota musí být větší než nula.";
+        
+        }
+
+          
+  
+
+        });
+
+        
+    }); //DOMContentLoaded       
+    </script>
+</head>
+<body>
+   <form>
+<label for="x">První číslo: </label>
+<input type="text" name="x" id="x" value="567"><BR>
+<label for="y">druhé číslo: </label>
+<input type="text" name="y" id="y" value="4"><BR>
+<label for="z">druhé číslo: </label>
+<input type="text" name="z" id="z" value="5"><BR>
+
+<input type="button"  id="calc" value="Spočti"><BR>
+     
+
+   </form> 
+
+  <p id="res"></p><br>
+    
+
+</body>
+</html>
