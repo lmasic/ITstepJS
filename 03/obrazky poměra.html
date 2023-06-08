@@ -4,8 +4,15 @@
     <meta charset='utf-8'>
     <title>počty1</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {margin:0;}
+    </style>
     <script>
         window.addEventListener("DOMContentLoaded", (event) => {
+            //uložím si původní rozměry obrázku
+            var o_w=document.getElementById('pic').width;
+            var o_h=document.getElementById('pic').height;
+            console.log(o_w,o_h);
            
         let btn = document.getElementById('calc');
         
@@ -32,10 +39,13 @@
         
     window.addEventListener('resize', (e) => {
            
+        if(window.innerHeight > window.innerWidth){
+    
+
            x=window.screen.availWidth;
            console.log(x);
-           ratio=x/document.getElementById('pic').width;
-           z=document.getElementById('pic').height;
+           ratio=x/o_w;
+           z=o_h;
 
            document.getElementById('res')
            .innerHTML="poměr: "+ratio+"<br>"+
@@ -43,6 +53,29 @@
            
            document.getElementById('pic').width=x;
            document.getElementById('pic').height=z*ratio;
+        
+        }else //orientace na šířku. 
+        {
+           x=window.screen.availHeight;
+           console.log(x,document.getElementById('pic').height);
+
+           ratio=x/o_h;
+           console.log(ratio);
+           
+           z=o_w;
+
+           document.getElementById('res')
+           .innerHTML="poměr: "+ratio+"<br>"+
+           "šířka: "+z*ratio;
+           console.log("poměr: "+ratio+"<br>"+
+           "šířka: "+x/z*ratio);
+           
+           document.getElementById('pic').height=x;
+           document.getElementById('pic').width=z*ratio;
+        
+
+
+        }
 
        });
 
@@ -51,7 +84,9 @@
     </script>
 </head>
 <body>
-   <form>
+    <img id="pic" width="1200" height="630" src="https://media.swncdn.com/godtube/resource/popular-hymns/image/amazing-grace.jpg">
+
+    <form>
 <label for="x">První číslo: </label>
 <input type="text" name="x" id="x" value="360"><BR>
 <label for="y">druhé číslo: </label>
@@ -66,6 +101,5 @@
 
   <p id="res"></p><br>
     
-<img id="pic" src="https://media.swncdn.com/godtube/resource/popular-hymns/image/amazing-grace.jpg">
 </body>
 </html>

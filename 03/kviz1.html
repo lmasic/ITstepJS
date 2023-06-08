@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    $("#submit").click(function(){
+    
+     if ($( "input:checked" ).val()=="pondelí") {
+      
+      //$( "input:checked" ).attr("id")  vrací "o2"
+      $("#"+$( "input:checked" ).attr("id")).parent().css("background","lime");
+      console.log("ok!");
+    
+    }                                                                       
+    
+    });
+    
+    
+
+});
+</script>
+</head>
+<body>
+
+<fieldset>
+ <h2>Co je dnes za den?</h2>
+ 
+ <label for="o1"><input type="radio" id="o1" value="nedele" name="den">nedele</label>
+ <label for="o2"><input type="radio" id="o2" value="pondelí" name="den">pondelí</label>
+ <label for="o3"><input type="radio" id="o3" value="úterý" name="den">úterý</label>
+ <label for="o4"><input type="radio" id="o4" value="streda" name="den">streda</label>
+   
+   <input type="button" value="Odeslat" id="submit">
+   
+ 
+</fieldset>
+
+  </body>
+</html>

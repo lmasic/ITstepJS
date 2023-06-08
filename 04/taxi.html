@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Taxi</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+           
+        let btn = document.getElementById('calc');
+        
+        btn.addEventListener('click', (e) => {
+            console.log(e);
+            km = parseInt(document.getElementById('x').value);
+            
+       cena=0;
+         if (km<=0) {
+        
+        //exit;
+        }
+        else
+       if (km<20) {
+     
+       
+       cena += km*25;
+      
+      }
+       else
+      if (km<40) {
+     
+       cena += (km-20)*23;
+       cena += 20*25;
+      
+      }
+      else 
+      if (km<60) {
+      cena += (km-40)*20;
+      cena += 20*23;
+      cena += 20*25;
+      
+      
+      }
+      
+      if (km>=60) {
+      cena += (km-60)*17;
+      cena += 20*20;
+      cena += 20*23;
+      cena += 20*25;
+      
+      
+      }
+        document.getElementById('res').innerHTML=cena;
+                
+                 
+            
+
+        });
+
+        
+    }); //DOMContentLoaded       
+    </script>
+</head>
+<body>
+   <form>
+<label for="x">První číslo: </label>
+<input type="text" name="x" id="x" value="62"><BR>
+
+
+<input type="button"  id="calc" value="Spočti"><BR>
+     
+
+   </form> 
+
+  <p id="res"></p><br>
+    
+
+</body>
+</html>

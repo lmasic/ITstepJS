@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Nej ze tří</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+           
+        let btn = document.getElementById('calc');
+        
+        btn.addEventListener('click', (e) => {
+            console.log(e);
+            a = parseInt(document.getElementById('x').value);
+            b = parseInt(document.getElementById('y').value);  
+            c = Number(document.getElementById('z').value);  
+           // document.getElementById('res').innerHTML=8508260167%11;
+
+
+           if (a>b) {
+                if (a>c) {
+                    res=a;
+
+                }else {//c nej
+
+                    res=c;
+                }
+
+           } else {//b>a
+
+                if (b>c) {
+
+                    res=b;
+                }else {
+
+                    res=c;
+                }
+
+           }
+         
+          document.getElementById('res').innerHTML=res;
+
+          if (a>b && a >c) {
+            res=a;
+          }
+          else{ if (b>a && b>c) {
+
+            res=b;
+          
+            else
+                {
+                    res=c;
+                }
+                 
+            }
+//---------------------------
+            if (a>b && a>c) 
+                res=a;
+            else 
+                if (b>a && b>c) 
+                    res=b;
+                else
+                    res=c;
+        document.getElementById('res').innerHTML=res;
+                
+                 
+            
+
+        });
+
+        
+    }); //DOMContentLoaded       
+    </script>
+</head>
+<body>
+   <form>
+<label for="x">První číslo: </label>
+<input type="text" name="x" id="x" value="567"><BR>
+<label for="y">druhé číslo: </label>
+<input type="text" name="y" id="y" value="4"><BR>
+<label for="z">druhé číslo: </label>
+<input type="text" name="z" id="z" value="5"><BR>
+
+<input type="button"  id="calc" value="Spočti"><BR>
+     
+
+   </form> 
+
+  <p id="res"></p><br>
+    
+
+</body>
+</html>
