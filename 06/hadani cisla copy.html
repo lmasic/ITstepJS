@@ -3,42 +3,43 @@
 
 <head>
     <meta charset='utf-8'>
-    <title>Hadej číslo s cyklem</title>
+    <title>Hadej číslo bez cyklu</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script>
         window.addEventListener("DOMContentLoaded", (event) => {
             let btn = document.getElementById('calc');
             var myslim = parseInt(Math.random() * 100 + 1);
-            var attempt=5;//počet pokusů
+            var attempt=5;
             console.log("Myslim si " + myslim);
 
             btn.addEventListener('click', (e) => {
-                let msg="Zadej číslo";
 
-              while(attempt>0) {//
+                if (attempt==0) {
+                    console.log("konec");
+                       return; 
+
+                }
                 attempt--;
-                    cislo = parseInt(prompt(msg));
-                    
+                    cislo = parseInt(document.getElementById('x').value);
+                    document.getElementById('x').value = "";
                     if (cislo == myslim) {
-                        alert("trefa!");
+                        console.log("trefa!");
                         return;
 
                     } else if (cislo > myslim) {
 
-                        msg="Hadej menší";
+                        console.log("Hadej menší");
 
                     } else {
 
-                        msg="Hadej větší";
+                        console.log("Hadej větší");
 
                     }
 
                
 
-                }        
-                
-                    console.log("konec");
-                 
+
+
             });
         });        
     </script>
@@ -47,8 +48,9 @@
 <body>
     <p id="res"></p><br>
 
-   
-    <input type="button" id="calc" value="Jedem"><BR>
+    <label for="x">hadej: </label>
+    <input type="text" name="x" id="x"><BR>
+    <input type="button" id="calc" value="Spočti"><BR>
 
 
 
