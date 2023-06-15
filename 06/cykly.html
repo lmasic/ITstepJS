@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>cykly</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+            let btn = document.getElementById('calc');
+            btn.addEventListener('click', (e) => { 
+                text ="";
+                tmp=0;
+            min = parseFloat(document.getElementById('x').value);
+            max = parseFloat(document.getElementById('y').value);  
+            krok = parseFloat(document.getElementById('z').value);  
+            
+            if (min>max) {
+                 tmp=max;
+                 min=max;
+                 max=tmp;   
+
+            }    
+
+            for (let i = min; i < max; i+=krok) {
+            console.log(i);
+            
+            }
+
+           // document.getElementById('res').innerHTML=x+y;
+        }); 
+    });        
+    </script>
+</head>
+<body>
+
+    <form>
+        <label for="x">První číslo: </label>
+        <input type="text" name="x" id="x"><BR>
+        <label for="y">druhé číslo: </label>
+        <input type="text" name="y" id="y"><BR>
+            <input type="text" name="z" id="z"><BR>
+                <input type="button"  id="calc" value="Spočti"><BR>
+                     
+                    
+        
+           </form> 
+        
+          <p id="res"></p><br>
+    
+
+</body>
+</html>

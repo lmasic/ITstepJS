@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>cykly</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+            let btn = document.getElementById('x');
+            btn.addEventListener('keypress', (e) => { 
+            //console.log(e.keyCode);
+            cislo = parseFloat(document.getElementById('x').value);
+            document.getElementById('x').value="";
+            console.log(cislo);
+            
+           
+
+           
+        }); 
+    });        
+    </script>
+</head>
+<body>
+
+
+        <label for="x">hadej: </label>
+        <input type="text" name="x" id="x"><BR>
+        
+                     
+                    
+        
+          
+        
+          <p id="res"></p><br>
+    
+
+</body>
+</html>
