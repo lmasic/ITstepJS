@@ -6,8 +6,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script>
         window.addEventListener("DOMContentLoaded", (event) => {
-            let btn = document.getElementById('x');
-            btn.addEventListener('keypress', (e) => { 
+            let btn = document.getElementById('calc');
+            btn.addEventListener('click', (e) => { 
             //console.log(e.keyCode);
             cislo = parseFloat(document.getElementById('x').value);
             document.getElementById('x').value="";
@@ -25,7 +25,7 @@
 
         <label for="x">hadej: </label>
         <input type="text" name="x" id="x"><BR>
-        
+            <input type="button"  id="calc" value="Spočti"><BR>
                      
                     
         
