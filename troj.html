@@ -10,26 +10,25 @@
             btn.addEventListener('click', (e) => { 
                 text ="";
                 tmp=0;
-            min = parseFloat(document.getElementById('x').value);
-            max = parseFloat(document.getElementById('y').value);  
-            krok = parseFloat(document.getElementById('z').value);  
-            
+            v = 5;//;parseFloat(document.getElementById('x').value);
+           
+            for (i = 1; i <= v; i++) {
 
+                for (j = 1; j <= v-i; j++) {
 
-            if (min>max) {
-                 tmp=min;
-                 min=max;
-                 max=tmp;   
-
-            }    
-           // if (krok>0)
-             {
-
-                for (let i = min; i < max; i+=krok) {
-                console.log(i);
-                
+                    text+=".";
                 }
-            }
+
+                for (j = 1; j <= i; j++) {
+
+                    text+="*";
+                }
+                text+="<BR>";
+
+                }   
+                document.write(text);
+
+            
 
            // document.getElementById('res').innerHTML=x+y;
         }); 

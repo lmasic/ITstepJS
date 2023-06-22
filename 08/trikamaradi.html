@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script>
+     window.addEventListener("DOMContentLoaded", (event) => {
+          function insertAfter(newNode, existingNode) {
+      existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+    }
+    function  createINput() {
+        let friend =  document.createElement('input');
+        friend.name="kam[]";
+        return friend;
+
+    }
+    function  createLabel() {
+        let friend =  document.createElement('label');
+        friend.innerText="Kamarád "+(getFriendCount()+1)+": ";
+        return friend;
+
+    }
+    function  createDiv() {
+        let friend =  document.createElement('div');
+        friend.className="kam";
+        
+        return friend;
+
+    }
+
+    function addFriend() {
+        
+
+        let friend = createDiv();
+        friend.appendChild(createLabel());
+        friend.appendChild(createINput());
+        insertAfter(friend,getLastFriend());
+        
+
+    }
+    function getLastFriend() {
+
+        kamaradi=document.querySelectorAll(".kam");
+            //console.log(kamaradi.length);
+            return kamaradi[0];
+    }
+    function getFriendCount() {
+
+    kamaradi=document.querySelectorAll(".kam");
+    //console.log(kamaradi.length);
+    return kamaradi.length;
+}
+    let btn = document.getElementById('addBtn');
+        
+        btn.addEventListener('click', (e) => {
+            addFriend(); 
+     });
+
+    });//DOM load
+    </script>
+</head>
+<body>
+
+    <div class="kam">
+    <label for="">Kamarád 1: </label>
+<input type="text" name="kam[]"  value="4500"><BR>
+</div>
+    <input type="button"  id="addBtn" value="Přidej"><BR>
+<input type="button"  id="calc" value="Spočti"><BR>
+    
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>počty1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {margin:0;}
+    </style>
+    <script>
+        
+        window.addEventListener("DOMContentLoaded", (event) => {
+
+            function resizeImg() {    
+                console.log("fce...");
+        if(window.innerHeight > window.innerWidth){
+    
+
+           x=window.screen.availWidth;
+           console.log(x);
+           ratio=x/o_w;
+           z=o_h;
+
+           document.getElementById('res')
+           .innerHTML="poměr: "+ratio+"<br>"+
+           "výška: "+z*ratio;
+           
+           document.getElementById('pic').width=x;
+           document.getElementById('pic').height=z*ratio;
+        
+        }else //orientace na šířku. 
+        {
+           x=window.screen.availHeight;
+           console.log(x,document.getElementById('pic').height);
+
+           ratio=x/o_h;
+           console.log(ratio);
+           
+           z=o_w;
+
+           document.getElementById('res')
+           .innerHTML="poměr: "+ratio+"<br>"+
+           "šířka: "+z*ratio;
+           console.log("poměr: "+ratio+"<br>"+
+           "šířka: "+x/z*ratio);
+           
+           document.getElementById('pic').height=x;
+           document.getElementById('pic').width=z*ratio;
+        
+
+
+        }}
+
+            //uložím si původní rozměry obrázku
+            var o_w=document.getElementById('pic').width;
+            var o_h=document.getElementById('pic').height;
+            console.log(o_w,o_h);
+           
+        let btn = document.getElementById('calc');
+        
+        btn.addEventListener('click', (e) => {
+           
+            resizeImg();
+
+        });
+
+
+
+// https://stackoverflow.com/questions/4917664/detect-viewport-orientation-if-orientation-is-portrait-display-alert-message-ad
+        
+    window.addEventListener('resize', (e) => {
+       
+        resizeImg();
+       });
+
+       resizeImg();
+    }); //DOMContentLoaded       
+    </script>
+</head>
+<body>
+    <img id="pic" width="1200" height="630" src="https://media.swncdn.com/godtube/resource/popular-hymns/image/amazing-grace.jpg">
+
+    <form>
+<label for="x">První číslo: </label>
+<input type="text" name="x" id="x" value="360"><BR>
+<label for="y">druhé číslo: </label>
+<input type="text" name="y" id="y" value="1200"><BR>
+<label for="z">druhé číslo: </label>
+<input type="text" name="z" id="z" value="630"><BR>
+
+<input type="button"  id="calc" value="Spočti"><BR>
+     
+
+   </form> 
+
+  <p id="res"></p><br>
+    
+</body>
+</html>
