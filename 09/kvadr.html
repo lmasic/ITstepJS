@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>kvádr</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+ <script>
+    function uhl(a,b) {
+
+        return Math.sqrt(a*a+b*b);
+    }
+
+    function telUhl(a,b,c) {
+        u = uhl(a,b);//stěnová uhlo...
+    //return Math.sqrt(u*u+c*c);
+        return uhl(c,
+        uhl(a,b)
+        
+        );
+    }
+
+    let a=4;
+    let b=6;
+    let c=5;
+
+    //document.write(uhl(a,b));
+    document.write(telUhl(a,b,c));
+
+
+ </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script>
+        let emails="zajicek@2n.com,vilem.vrbicky@3dtech.cz,martin.falta@residit.com,iveta.dvorakova@gitisit.cz,vladimir.goby@a1m.cz,ondrej.novak@cz.abb.com,kariera.praha@army.cz,marek.sticha@advancedtech.cz,klara.brousilova@airbank.cz,romana.kaderabkova@aira.cz";
+
+        let emails_a = emails.split(",");
+
+        for (i=0;i<emails_a.length;i++) {
+
+            document.write(
+            "<a href='mailto:"+emails_a[i]+"'>"+emails_a[i]+"</a> "
+
+
+            );
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
