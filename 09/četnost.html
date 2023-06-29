@@ -22,37 +22,17 @@
         }*/
 
         let str="aAsdfSDDDas";
-        let chr=0;
-        let chars = [];// 0==A, 1==B
-        for (i=0;i<26;i++) {
-            chars[i]=0;
-            }
+        let chr='';
+        let chars = [];
         document.write(str+"<br>");
         for (i=0;i<str.length;i++) {
-            
-            chr=str.charCodeAt(i);
-            if (chr>=97 && chr<122)
-                { 
-                    chars[chr-97]++;
 
-                }
-                else
-            if (chr>=65 && chr<90) {
-                chars[chr-65]++;
-                
-            }
-           
+            chr=str.charCodeAt(i);
             document.write(chr+" ");
             
             
         }
-        
-        document.write("<br>");
-        for (i=0;i<chars.length;i++) {
 
-            document.write(String.fromCharCode(65+i)+": "+chars[i]+"<br>");
-
-        }
 
     </script>
 </head>

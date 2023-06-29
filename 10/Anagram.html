@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script>
+    let str1="Tom Marvolo Riddle?";
+    let str2="I Am Lord Voldemort.";
+    //str1="aabb";
+    //str2="bbaa";
+    let chr=0;
+        var chars = [];// 0==A, 1==B
+        for (i=0;i<26;i++) {
+            chars[i]=0;
+            }
+        var chars2 = [];// 0==A, 1==B
+        for (i=0;i<26;i++) {
+            chars2[i]=0;
+            }    
+
+    function charCount(ch,chars) {
+        if (ch==undefined) return;
+        chr=ch.charCodeAt(0);
+        if (chr>=97 && chr<122)
+                { 
+                    chars[chr-97]++;
+
+                }
+                else
+            if (chr>=65 && chr<90) {
+                chars[chr-65]++;
+                
+            }
+            console.log(ch,chr, chars);
+    }
+        
+      
+       
+        for (i=0;i<str2.length;i++) {
+            
+            charCount(str1[i],chars);  
+            charCount(str2[i],chars2);
+
+         
+            
+        }
+       
+        console.log(chars,chars2);
+        
+        let ano=1;
+        for (i=0;i<chars.length;i++) {
+
+        if (chars[i]!=chars2[i]) {document.write("Není anagram.");ano=0;break;}
+           
+            }
+            if (ano) document.write("JE anagram.");
+     
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
