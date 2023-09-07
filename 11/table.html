@@ -44,11 +44,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
             if (subject_id[i].innerText=="IT")
                 subject_id[i].parentElement.style="background:lightpink";
             else 
-            if (subject_id[i].parentElement.innerText=="ELE")
+            if (subject_id[i].innerText=="ELE")
                 subject_id[i].parentElement.style="background:lightgreen";
             else 
             
-                subject_id[i].style="background:brown";    
+                subject_id[i].parentElement.style="background:brown";    
         }     
 
 });

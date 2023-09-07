@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+window.addEventListener("DOMContentLoaded", (event) => {
+    
+let html="<table border='1'>";
+
+for (i=0;i<MathScore.length;i++) {
+    console.log(MathScore[i]);  
+    html+="<tr>";
+        for (j=0;j<MathScore[i].length;j++) {
+            html+="<td>"+MathScore[i][j]+"</td>";
+  
+        }
+    
+    html+="</tr>";    
+
+}
+html+="</table>";
+document.write(html);
+
+table=document.createElement("table");
+table.setAttribute("border","1");
+
+for (i=0;i<MathScore.length;i++) {
+    
+    tr=document.createElement("tr");
+    
+        for (j=0;j<MathScore[i].length;j++) {
+            td=document.createElement("td");
+            tn=document.createTextNode=MathScore[i][j];
+            td.append(tn);
+            tr.append(td);
+        }
+        table.append(tr);
+      
+
+}
+document.body.append(table);
+
+});
+</script>
+ 
+<style>
+    .task {min-height: 30px;border:1px solid red;}
+</style>
+<body>
+   <div class="task"> <input type="checkbox"> text.... </div>
+
+</body>
+
+</html>
