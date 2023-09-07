@@ -6,9 +6,22 @@
   <script>
 		window.addEventListener("DOMContentLoaded", (event) => {
 
-			archons = document.querySelectorAll("table tr td:nth-child(2)");
-			console.log(archons[0].innerText);
 
+      
+			archons = document.querySelectorAll("table tr td:nth-child(3)");
+			console.log(archons);
+      let sum=0;
+      for(i=1;i<archons.length;i++) {
+            //console.log(archons[i].innerText);
+            archons[i].innerText=Number(archons[i].innerText)+5;
+            sum+=Number(archons[i].innerText);
+          }
+          console.log(sum);
+
+          sumTd = document.querySelector("table tr:last-child td:nth-child(3)");
+          
+          sumTd.innerText=sum;
+          
 		});
 	</script>
   </head>
@@ -17,7 +30,7 @@
 <tr><td>kvartál</td><td>úloha</td><td>body</td></tr>
 <tr><td>I.</td><td>Opakování - routIng</td><td>5</td></tr>
 <tr><td>I.</td><td>Opakování - dhcp</td><td>5</td></tr>
-<tr><td>I.</td><td>Opakování I - skupnový routIng</td><td>5</td></tr>
+<tr><td>I.</td><td>Opakování I - skupnový routIng</td><td>10</td></tr>
 <tr><td>I.</td><td>VLAN KonfIgurace</td><td>5</td></tr>
 <tr><td>I.</td><td>Inter-VLAN Rout</td><td>5</td></tr>
 <tr><td>I.</td><td>OSPF</td><td>4</td></tr>
@@ -31,7 +44,7 @@
 <tr><td>I.</td><td>Příprava na hodInu II</td><td>2</td></tr>
 <tr><td>I.</td><td>AktIvIta na hodInách</td><td>16</td></tr>
 <tr><td>I.</td><td>Závěrečná písemka</td><td>20</td></tr>
-</td><td>Suma 1. Q</td><td></td></tr>
+<tr><td></td><td>Suma 1. Q</td><td></td></tr>
 </table>
 
 
