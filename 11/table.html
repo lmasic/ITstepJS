@@ -12,7 +12,7 @@
     <script>
 window.addEventListener("DOMContentLoaded", (event) => {
     let btn = document.getElementById('btn_emails');
-        
+    
         btn.addEventListener('click', (e) => {
             archons = document.querySelectorAll("tbody .email");
         checks = document.querySelectorAll("tbody .check");
@@ -23,13 +23,33 @@ window.addEventListener("DOMContentLoaded", (event) => {
         
             if (checks[i].checked==true)
                 sum+=archons[i].innerText+",";
+                
             
         }
         window.location.href=sum;//otevře URL v sum
         //window.open(sum);
             });
 
+        phones = 
+        document.querySelectorAll("tbody .phone");
+        for(i=0;i<phones.length;i++) {
+            if (phones[i].innerText.length<2)
+                phones[i].style="background:yellow";
 
+        }    
+
+        subject_id = 
+        document.querySelectorAll("tbody .subject_id");
+        for(i=0;i<subject_id.length;i++) {
+            if (subject_id[i].innerText=="IT")
+                subject_id[i].parentElement.style="background:lightpink";
+            else 
+            if (subject_id[i].parentElement.innerText=="ELE")
+                subject_id[i].parentElement.style="background:lightgreen";
+            else 
+            
+                subject_id[i].style="background:brown";    
+        }     
 
 });
 </script>
