@@ -12,50 +12,35 @@
     <script>
 window.addEventListener("DOMContentLoaded", (event) => {
     
-let html="<table border='1'>";
-
-for (i=0;i<MathScore.length;i++) {
-    console.log(MathScore[i]);  
-    html+="<tr>";
-        for (j=0;j<MathScore[i].length;j++) {
-            html+="<td>"+MathScore[i][j]+"</td>";
-  
-        }
     
-    html+="</tr>";    
-
-}
-html+="</table>";
-document.write(html);
-
-table=document.createElement("table");
-table.setAttribute("border","1");
-
-for (i=0;i<MathScore.length;i++) {
-    
-    tr=document.createElement("tr");
-    
-        for (j=0;j<MathScore[i].length;j++) {
-            td=document.createElement("td");
-            tn=document.createTextNode=MathScore[i][j];
-            td.append(tn);
-            tr.append(td);
-        }
-        table.append(tr);
-      
-
-}
-document.body.append(table);
+    let btn = document.getElementById('btn-create');
+        
+        btn.addEventListener('click', (e) => {
+            let task=' <div class="task"><input type="checkbox"><h1>'+ +'</h1><p>'+ +'</p></div>';
+            document.getElementById("tasks").append(task);    
+        });
 
 });
 </script>
  
 <style>
     .task {min-height: 30px;border:1px solid red;}
+    .task input, .task p {display: inline-block;}
+    body {margin:10px}
+    section {width:33%;}
+    form  {width:33%;margin-bottom:10px}
+    form * {width:100%}
 </style>
 <body>
-   <div class="task"> <input type="checkbox"> text.... </div>
+    <form>
+        <input type="text" id="name" placeholder="název úkolu"><br>
+        <textarea rows="3" cols="15" id="text"></textarea><br>
+        <input type="button" value="vytvoř" id="btn-create">
+    </form>
+<section id="tasks">
+
+
 
 </body>
-
+</section>
 </html>
