@@ -11,6 +11,7 @@
     
     <script>
         var chr="X";
+        
 window.addEventListener("DOMContentLoaded", (event) => {
  
     for(j=0;j<9;j++) {
@@ -27,6 +28,21 @@ function btnClick(elm) {
     
     if (elm.value==" ") elm.value=chr;
     if (chr=="X") chr="O";else chr="X";
+   
+      
+    if(check()=="X") alert("X vyhrál");
+
+}
+
+function check() {//zjistí, zda někdo vyhrál
+    console.log(document.getElementsByClassName("btn0")[0]);
+if (
+    document.getElementsByClassName("btn0")[0].value=="X" &&
+    document.getElementsByClassName("btn1")[0].value=="X" &&
+    document.getElementsByClassName("btn2")[0].value=="X" 
+    
+
+) return "X";
 
 
 }
