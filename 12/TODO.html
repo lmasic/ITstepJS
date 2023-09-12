@@ -10,33 +10,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <script>
+        var i=0;
 window.addEventListener("DOMContentLoaded", (event) => {
 
 
     let listOfTasks = [
 
-        ["Bar", "A"],
+        ["Bar", "dgsafgdas"],
 
-        ["Foo", "B"],
+        ["Foo", "Bdsfsdfa"],
 
-        ["Joey", "F"],
+        ["Joey", "Fdsfdfsfds"],
 
-        ["John", "A"],
+        ["John", "Adsfdsf"],
 
-        ["Liza","A"]
+        ["Liza","Adfsfdssadf"]
 
         ];
+    for(j=0;j<listOfTasks.length;j++) {
+        createTask(listOfTasks[j][0], listOfTasks[j][1]);
+
+    }
     
-    var i=0;
     let btn = document.getElementById('btn-create');
         
         btn.addEventListener('click', (e) => {
-            //TODO: kontrola, zda to není prázdné
+            
             let name=document.getElementById("name").value;
 
-            if (name=="") {return;}   
+           
 
             let text=document.getElementById("text").value;
+
+            createTask(name, text);
+        });
+
+
+        
+
+});
+function completed(elm) {
+
+elm.classList.toggle("completed");
+
+}
+
+function createTask(name, text) {
+
+     if (name=="") {return;}   
             let task="<div class='task task"+i+"'><h1>"+name+"</h1><p>"+text+"</p></div>";
             
             let del = document.createElement("input");
@@ -70,18 +91,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
             document.getElementById("name").value="";
             document.getElementById("text").value="";
             i++;
-       
-        });
-
-
-        
-
-});
-function completed(elm) {
-
-elm.classList.toggle("completed");
-
+    
 }
+
 </script>
  
 <style>
