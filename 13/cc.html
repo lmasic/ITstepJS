@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+        var chr="X";
+window.addEventListener("DOMContentLoaded", (event) => {
+ 
+    for(j=0;j<9;j++) {
+        createBtn(j);
+
+    }
+ 
+
+        
+
+});
+function btnClick(elm) {
+    console.log(elm.value);
+    
+    if (elm.value==" ") elm.value=chr;
+    if (chr=="X") chr="O";else chr="X";
+
+
+}
+
+function createBtn(i) {
+   
+            
+            let del = document.createElement("input");
+            del.setAttribute("type", 'button');
+            del.setAttribute("value", ' ');
+            del.setAttribute("class", 'btn'+i);
+            del.addEventListener('click', (e) => {
+               
+                btnClick(e.target); 
+
+            });
+            
+
+
+
+            
+            document.getElementById("desk").appendChild(del);
+            
+            
+            
+    
+}
+
+</script>
+ 
+<style>
+
+   #desk {width:600px;height:600px;margin: 20px auto}
+   #desk input {width:200px;height:200px;margin:0;padding:0;text-align:center;font-size: 200px;}
+</style>
+<body>
+ 
+<section id="desk">
+
+
+
+</body>
+</section>
+</html>
