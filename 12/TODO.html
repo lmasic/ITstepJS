@@ -11,6 +11,21 @@
     
     <script>
 window.addEventListener("DOMContentLoaded", (event) => {
+
+
+    let listOfTasks = [
+
+        ["Bar", "A"],
+
+        ["Foo", "B"],
+
+        ["Joey", "F"],
+
+        ["John", "A"],
+
+        ["Liza","A"]
+
+        ];
     
     var i=0;
     let btn = document.getElementById('btn-create');
@@ -23,6 +38,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
             let text=document.getElementById("text").value;
             let task="<div class='task task"+i+"'><h1>"+name+"</h1><p>"+text+"</p></div>";
+            
+            let del = document.createElement("input");
+            del.setAttribute("type", 'button');
+            del.setAttribute("value", 'x');
+            del.addEventListener('click', (e) => {
+                var target = e.target;
+                var parent = target.parentElement;
+                parent.remove();
+                
+
+            });
+            
+
             let check = document.createElement("input");
             check.setAttribute("type", 'checkbox');
             check.addEventListener('click', (e) => {
@@ -32,11 +60,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
             });
 
-            
+
             
             document.getElementById("tasks").insertAdjacentHTML('beforeend',task);// https://stackoverflow.com/questions/7327056/appending-html-string-to-the-dom    
             
             document.querySelector(".task"+i).insertAdjacentElement("afterbegin",check);
+            document.querySelector(".task"+i).insertAdjacentElement("afterbegin",del);
             
             document.getElementById("name").value="";
             document.getElementById("text").value="";
@@ -50,7 +79,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 function completed(elm) {
 
-elm.classList.add("completed");
+elm.classList.toggle("completed");
 
 }
 </script>
