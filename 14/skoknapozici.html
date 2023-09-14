@@ -11,13 +11,25 @@ function scrollToTop(hop){
   }
 
   window.addEventListener("DOMContentLoaded", (event) => {
-    
-    document.getElementById("myAnchor").addEventListener("click", function(event){
 
-  event.preventDefault();
-  let htop=document.getElementById("hop2").offsetTop-200;
-    scrollToTop(htop);
+    let anchors =  document.querySelectorAll("nav a");
+    console.log(anchors);
+    for (i=0;i<anchors.length;i++) {
+
+      anchors[i].addEventListener("click", function(event){
+
+      event.preventDefault();
+      console.log(event.target.href);
+      url = event.target.href;
+      let id = url.split("#")[1];
+      window.location.hash=id;
+      let htop=document.getElementById(id).offsetTop-200;
+        scrollToTop(htop);
 });
+    }
+
+    
+   
     
 
 });
