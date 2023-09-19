@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  <title>NL...</title>
+  <script>
+
+var imgs=["1.webp","2.jpeg","3.avif"];
+var i=0;
+var myInterval=0;
+function changeImg () {
+
+  document.getElementById("gal").src=imgs[i];
+  
+  i++;
+  if (i==imgs.length) i=0;
+
+
+}
+function myStopFunction() {
+  clearInterval(myInterval);
+}
+  window.addEventListener("DOMContentLoaded", (event) => {
+  //vycentrovat
+  //zobrtazit po 3s    
+  //showNLbox();
+  
+
+  //  document.getElementById("gal").src=imgs[0];
+  changeImg();
+  myInterval = setInterval(changeImg,3000);  
+
+});
+  </script>
+  <style>
+    .NL_box {width:300px;height: 200px;background: white;border:1px solid black;
+      position: absolute;top:0;;display:none}
+
+  </style>
+  </head>
+  <body>
+    <img src="" alt="" id="gal" style="width:300px;height:auto">
+    <button onclick="myStopFunction()">Stop time</button>
+  </body>
+</html>
