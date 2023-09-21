@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+$(document).ready(function(){
+    
+    let MathScore = [
+
+            ["Bar", 20, 60, "A"],
+
+            ["Foo", 10, 52, "B"],
+
+            ["Joey", 5, 24, "F"],
+
+            ["John", 28, 43, "A"],
+
+            ["Liza", 16, 51, "B","A"]
+
+            ];
+      
+            for (i=0;i<MathScore.length;i++) {
+                 $("table").append("<tr>");
+                
+                for (j=0;j<MathScore[i].length;j++) {
+                    $("table tr:last-child").append("<td>"+MathScore[i][j]+"</td>");
+                
+    
+    }
+
+       
+
+            }
+
+            $("table td").mouseenter(function(){
+                $(this).css('background',"red")
+        });
+            
+            
+});
+
+
+    </script>
+
+</head>
+<body>
+<table border="1">
+
+</table>
+
+
+
+</body>
+</html>
+
+
