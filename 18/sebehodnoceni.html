@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  <title>jQuery form</title>
+                <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  
+<script>
+
+$(document).ready(function(){
+
+               $( "form" ).submit(function( event ) {
+               $( "fieldset").removeClass("err");
+                         
+              err=0;             
+                         
+         if ( $( ".req input[name='jmeno']").val() == "" ) {
+                $( ".req input[name='jmeno']").parent().addClass("err");
+                err++;
+                 
+    
+      }  
+                            
+     
+      if ( $( ".req input[name='predmet']:checked").length==0) {
+                $( ".req input[name='predmet']").parent().addClass("err");
+                err++;
+                 
+        
+      }  
+           
+      if ( $( ".req input[name='pokec']:checked").length==0) {
+                $( ".req input[name='pokec']").parent().addClass("err");
+                err++;
+                 
+        
+      }  
+      else {
+
+        if ($( ".req input[name='pokec']:checked").val()=="jine") {
+
+           if($( ".req input[name='pokec_jine']").val() == "") 
+           {
+            $( ".req input[name='pokec']").parent().addClass("err");
+                err++;
+           }
+
+        }
+
+
+      }
+     
+                
+           
+     
+     if (err>0)
+                                                             {
+     $(".hlaska").show().fadeOut(0).fadeIn( 1000 );
+     
+     return false;
+     
+     } else return true;
+     
+     
+       event.preventDefault();
+    });
+    
+
+    $( ".req input[name='pokec']").click(function( event ) {
+        
+        if ($( ".req input[name='pokec']:checked").val()=="jine")  {
+
+            $( ".req input[name='pokec_jine']").show();
+
+        }else $( ".req input[name='pokec_jine']").hide();
+        
+    });
+    });//ready
+</script>
+  
+  <style>
+  
+  .err{background-color:rgba(255,0,0,0.4);}
+  .req {border-color:darkred;}
+  form {margin:50px auto;width:50%;}
+  legend {background:black;color:white;}
+  
+  fieldset {margin:10px 0;border:3px inset black;padding:20px 5px}
+  
+  
+  
+  input, label {display:inline-block}
+ 
+  .hlaska{display:none;color: red;}
+  .req input[name='pokec_jine'] {display:none}
+  
+  </style>
+  </head>
+  <body>
+    <form action="http://ar.lmsoft.cz/upload.php">
+  
+        <fieldset  class="req">
+        
+            <legend>Příjmení jméno:</legend>
+            <input type="text" name="jmeno" type="text">
+        </fieldset>
+
+        <fieldset  class="req">
+            <legend>K jakému předmětu se vyjadřujete</legend>
+            
+            <input type="radio" name="predmet" value="AR"><label>AR</label>  <br>
+            <input type="radio" name="predmet" value="PSS"><label>PSS</label><br>
+            <input type="radio" name="predmet" value="PV"><label>PV</label>  <br>
+            <input type="radio" name="predmet" value="IT"><label>IT</label>  <br>
+            
+            
+            </fieldset>
+
+            <fieldset  class="req">
+                <legend>Se svým hodnocením jsem</legend>
+                 
+            <input type="checkbox" name="hodnoceni[]" value="Spokojen"><label>Spokojen</label>  <br>
+            <input type="checkbox" name="hodnoceni[]" value="NESpokojen"><label>NESpokojen</label>  <br>
+            <input type="checkbox" name="hodnoceni[]" value="Je mi to jedno"><label>Je mi to jedno</label>  <br>
+            <input type="checkbox" name="hodnoceni[]" value="Odpovídá mému nasazení"><label>Odpovídá mému nasazení</label>  <br>
+
+            </fieldset>
+
+            <fieldset  class="req">
+                <legend>Mám ve zvyku ....</legend>
+                 
+           
+                <input type="radio" name="pokec" value="ANO"><label>ANO</label>  <br>
+                <input type="radio" name="pokec" value="NE"><label>NE</label><br>
+                <input type="radio" name="pokec" value="jine"><label>Jiné:</label>
+                <input type="text" name="pokec_jine" value="">  <br>
+                
+                
+            </fieldset>
+
+
+            <input type="submit" value="Odeslat">  <span class="hlaska">Vyplňte povinná pole</span>
+  </form>
+  </body>
+  </html>      
