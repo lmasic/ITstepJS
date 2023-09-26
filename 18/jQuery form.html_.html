@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  <title>jQuery form</title>
+                <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  
+<script>
+
+$(document).ready(function(){
+
+               $( "form" ).submit(function( event ) {
+               $( "fieldset").removeClass("err");
+                         
+              err=0;             
+                           
+         if ( $( ".req input[name='jmeno']").val() == "" ) {
+                $( ".req input[name='jmeno']").parent().addClass("err");
+                err++;
+                 
+    
+      }  
+                            
+     
+      if ( $( ".req input[name='pokec']:checked").length==0) {
+                $( ".req input[name='pokec']").parent().addClass("err");
+                err++;
+                 
+        
+      }  
+           
+      if ( $( ".req input[name='hodnoceni[]']:checked").length==0) {
+                $( ".req input[name='hodnoceni[]']").parent().addClass("err");
+                err++;
+                 
+        
+      }  
+                
+           
+     
+     if (err>0)
+                                                             {
+     $(".hlaska").show().fadeOut(0).fadeIn( 1000 );
+     
+     return false;
+     
+     } else return true;
+     
+     
+       event.preventDefault();
+    });
+    
+    
+    });//ready
+</script>
+  
+  <style>
+  
+  .err{background-color:rgba(255,0,0,0.4);}
+  .req {border-color:darkred;}
+  form {margin:50px auto;width:50%;}
+  legend {background:black;color:white;}
+  
+  fieldset {margin:10px 0;border:3px inset black;padding:20px 5px}
+  
+  
+  
+  input, label {display:inline-block}
+ 
+  .hlaska{display:none;color: red;}
+  
+  </style>
+  </head>
+  <body>
+
+  <form action="http://ar.lmsoft.cz/upload.php">
+  
+  <fieldset  class="req">
+  
+  <legend>Vaše jméno:</legend>
+  <input type="text" name="jmeno" type="text" required>
+  
+  
+  </fieldset>
+  
+  <fieldset  class="req">
+  <legend>Mám ve zvyku si s každým žákem krátce popovídat o jeho prospěchu. Máte o toto zájem?</legend>
+  
+  <input type="radio" name="pokec" value="ano"><label>Ano</label>  <br>
+  <input type="radio" name="pokec" value="ne""><label>Ne</label>
+  
+  
+  </fieldset>
+  
+      <fieldset  class="req">
+  <legend>Se svým hodnocením jsem</legend>
+  
+  <input type="checkbox" name="hodnoceni[]" value="Spokojen"><label>Spokojen</label>           <br>
+  <input type="checkbox" name="hodnoceni[]" value="Nespokojen"><label>Nespokojen </label>        <br>
+  <input type="checkbox" name="hodnoceni[]" value="Je mi to jedno"><label>Je mi to jedno  </label>      <br>
+  <input type="checkbox" name="hodnoceni[]" value="Odpovídá mému nasazení"><label>Odpovídá mému nasazení  </label>
+  
+  
+  </fieldset>
+  
+  
+  
+                                                   <input type="submit" value="Odeslat">  <span class="hlaska">Vyplňte povinná pole</span>
+  
+  
+  
+                                                     
+  </form>
+  </body>
+</html>
