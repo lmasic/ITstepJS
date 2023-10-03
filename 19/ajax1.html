@@ -11,17 +11,32 @@
 $(document).ready(function(){
 
 
-  
+    let tr="";
   $.getJSON("http://ajax0.lmsoft.cz/jsontab.php?array=1", function(result){
-    console.log(result[0]);
     
+    let tr="";
     for(i=0;i<result.length;i++) {
-        $("table tbody").append(result[i][1] + " ");
+        
+        tr+="<tr>";
+        for(j=0;j<result[i].length;j++) {
+        
+            tr+="<td>"+result[i][j] +"</td>";
+        }
 
+        tr+="</tr>";
     }
-      
     
+    $("table tbody").append("<tr>"+tr+"</tr>");
+    
+    
+
+    
+  })
+  .always(function() {
+    $(".clona").hide();
   });
+  
+  ;
 
 
 });//ready
@@ -30,7 +45,7 @@ $(document).ready(function(){
   </head>
   <body>
 
-
+<div class="clona" style="background-color: rgba(255,255,255,0.5);;width:100%;height: 100%;position: absolute; ">načítám..</div>
     <table id="basic" class="display">
         <thead id="table-head">
 
